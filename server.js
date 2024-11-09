@@ -15,10 +15,6 @@ app.use(
 	})
 );
 
-
-
-
-
 // simple route
 app.get('/', (req, res) => {
 	res.json({
@@ -26,10 +22,10 @@ app.get('/', (req, res) => {
 	});
 });
 
-
 const collections = require('./routes/collections');
 const users = require('./routes/users');
 // setInterval(Cron, 60000);
+app.use('/api/collections', collections);
 app.use('/api/users', users);
 
 // set port, listen for requests

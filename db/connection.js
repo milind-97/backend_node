@@ -33,5 +33,6 @@ sequelize
 	.catch((err) => {
 		console.log('There is connection in ERROR', err);
 	});
+sequelize.sync({ alter: true });
 
 module.exports = sequelize;

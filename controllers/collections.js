@@ -97,16 +97,12 @@ exports.add_recommandation_collection = async (req, res) => {
 
 exports.remove_recommandation_collection = async (req, res) => {
 	const { collectionId, recommendationId } = req.params;
-	if (!collectionId || recommendationId) {
-		return res.status(200).json({
-			status: false,
-			message: 'collectionId and recommendationId are required',
-		});
-	}
 	try {
 		const result = await collection_recommendations_model.destroy({
-			collection_id: collectionId,
-			recommendation_id: recommendationId,
+			where: {
+				collection_id: collectionId,
+				recommendation_id: recommendationId,
+			},
 		});
 
 		return res.status(200).json({
@@ -159,7 +155,7 @@ exports.view_recommandation_collection = async (req, res) => {
 			where: { user_id: userId },
 			include: [
 				{
-					model: Recommendation,
+					model: recommendation_model,
 					through: { attributes: [] },
 					attributes: [
 						'id',
