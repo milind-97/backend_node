@@ -1,0 +1,40 @@
+CREATE TABLE IF NOT EXISTS public.recommendations
+(
+    id serial,
+    user_id bigint NOT NULL,
+    title character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    caption text COLLATE pg_catalog."default",
+    category character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_DATE,
+    updated_at timestamp with time zone DEFAULT CURRENT_DATE
+)
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id serial,
+    fname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    sname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    profile_picture text COLLATE pg_catalog."default" NOT NULL,
+    bio text COLLATE pg_catalog."default",
+    created_at timestamp with time zone DEFAULT CURRENT_DATE,
+     updated_at timestamp with time zone DEFAULT CURRENT_DATE
+)
+
+CREATE TABLE IF NOT EXISTS public.collection_recommendations
+(
+    id serial,
+    collection_id bigint NOT NULL,
+    recommendation_id bigint NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_DATE,
+    updated_at timestamp with time zone DEFAULT CURRENT_DATE
+)
+
+CREATE TABLE IF NOT EXISTS public.collections
+(
+    id serial,
+    user_id bigint NOT NULL,
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    description text COLLATE pg_catalog."default",
+    created_at timestamp with time zone DEFAULT CURRENT_DATE,
+    updated_at timestamp with time zone DEFAULT CURRENT_DATE
+)
