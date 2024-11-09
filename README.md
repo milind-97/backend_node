@@ -14,7 +14,9 @@
 6. click on csv to sql it will write a insert query copy the query and run in pgadmin or any other tool you are using for postgresql
  -->
 
- <!-- with this submission im also sharing the postman collection to test the apis -->
+ <!-- how to test apis
+ attaching postman collection in root directory just import collection in postman and hit the api endpoints
+  -->
 
 
 
